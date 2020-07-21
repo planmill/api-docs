@@ -22,7 +22,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api", (req, res) => {
-  res.redirect(301, __dirname + "/api_docs/");
+  res.writeHead(301, {Location: __dirname + "/api_docs/"});
+  res.end();
 });
 
 app.get("/download/:type", async (req, res) => {
