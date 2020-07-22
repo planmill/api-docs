@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api", (req, res) => {
-  res.redirect(__dirname + "/api_docs/");
+  res.redirect(__dirname + "/api_docs/index.html");
 });
 
 app.get("/download/:type", async (req, res) => {
