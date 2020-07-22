@@ -21,9 +21,9 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-// app.get("/api", (req, res) => {
-//   res.redirect(__dirname + "/api_docs/");
-// });
+app.get("/api", (req, res) => {
+  res.redirect(__dirname + "/api_docs/");
+});
 
 app.get("/download/:type", async (req, res) => {
   let type = req.params.type,
