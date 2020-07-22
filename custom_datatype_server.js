@@ -21,11 +21,6 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-app.get("/api", (req, res) => {
-  let redirectUrl = join(__dirname + "/api_docs/index.html");
-  res.sendFile(redirectUrl);
-});
-
 app.get("/download/:type", async (req, res) => {
   let type = req.params.type,
     filePath = join(__dirname + "/api_docs/", type + ramlEndpoint),
