@@ -22,7 +22,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api", (req, res) => {
-  res.redirect("/api_docs/");
+  let redirectUrl = join(__dirname + "/../api_docs/index.html");
+  res.redirect(301, redirectUrl);
 });
 
 app.get("/download/:type", async (req, res) => {
