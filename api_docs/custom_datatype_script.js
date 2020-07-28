@@ -41,7 +41,7 @@ $(function () {
       el.addEventListener("click", function () {
         let jsonFile = type + ".json";
 
-        fetch("/downloads/" + type, { method: "GET" })
+        fetch("/download/" + type, { method: "GET" })
           .then((response) => response.text())
           .then((data) => {
             download(jsonFile, data);
