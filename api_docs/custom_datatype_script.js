@@ -2,6 +2,10 @@ var divSelector = "div[id*='datatype']";
 var idSplit = ":";
 
 var linkItems = [
+  "absences_get_response:absence1_5",
+  "absences_post_request:absence1_5",
+  "absences__absence_id__get_response:absence_single1_5",
+  "absences__absence_id__post_request:absence_single1_5",
   "accounts_get_response:account1_5",
   "accounts_post_request:account1_5",
   "accounts__account_id__get_response:account_single1_5",
@@ -10,6 +14,8 @@ var linkItems = [
 
 function download(filename, text) {
   var element = document.createElement('a');
+  var filename = filename.replace(/1_5/ig, '');
+
   element.setAttribute('download', filename);
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
   element.style.display = 'none';
@@ -38,9 +44,9 @@ $(function () {
 	
 	if (el) {
       el.addEventListener("click", function () {
-        let jsonFile = type + ".json";
+        let jsonFile = type + ".schema";
 
-        fetch(jsonFile, { method: "GET" })
+        fetch(''+jsonFile, { method: "GET" })
           .then((response) => response.text())
           .then((data) => {
             download(jsonFile, data);

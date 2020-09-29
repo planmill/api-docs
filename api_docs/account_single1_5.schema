@@ -1,17 +1,17 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$ref": "#/definitions/account1_5",
+  "$ref": "#/definitions/account_single",
   "definitions": {
-    "account1_5": {
+    "account_single": {
+      "additionalProperties": false,
       "type": "object",
-      "additionalProperties": true,
       "required": [
         "name"
       ],
       "properties": {
         "id": {
-          "type": "integer",
-          "description": "Internal ID of an account"
+          "description": "Internal ID of an account",
+          "type": "integer"
         },
         "operationalId": {
           "anyOf": [
@@ -25,16 +25,16 @@
           "description": "Operational ID of an account"
         },
         "name": {
-          "type": "string",
-          "description": "Name of Account"
+          "description": "Name of Account",
+          "type": "string"
         },
         "passive": {
-          "type": "integer",
-          "description": "Active or passive state of account"
+          "description": "Active or passive state of account",
+          "type": "integer"
         },
         "owner": {
-          "type": "integer",
-          "description": "Responsible id of an account"
+          "description": "Responsible id of an account",
+          "type": "integer"
         },
         "type": {
           "anyOf": [
@@ -59,12 +59,23 @@
           "description": "VAT id of an account"
         },
         "businessId": {
-          "type": "string",
-          "description": "Business id of an account"
+          "description": "Business id of an account",
+          "type": "string"
         },
         "termsOfPayment": {
-          "type": "integer",
-          "description": "Terms of payment of an invoice"
+          "description": "Terms of payment of an invoice",
+          "type": "integer"
+        },
+        "eInvoicingAddress": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "eInvoicing address"
         },
         "phone": {
           "anyOf": [
@@ -78,8 +89,8 @@
           "description": "Phone number of an account"
         },
         "fax": {
-          "type": "string",
-          "description": "Fax number of an account"
+          "description": "Fax number of an account",
+          "type": "string"
         },
         "website": {
           "anyOf": [
@@ -102,16 +113,6 @@
             }
           ],
           "description": "Email address of an account"
-        },
-        "parentAccountName": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ]
         },
         "industry": {
           "anyOf": [
@@ -144,6 +145,28 @@
             }
           ]
         },
+        "description": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Description of an account"
+        },
+        "autoReplyRequestMails": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Auto-reply request mails"
+        },
         "invoiceChannel": {
           "anyOf": [
             {
@@ -175,10 +198,6 @@
               "type": "null"
             }
           ]
-        },
-        "eInvoiceAddress": {
-          "type": "string",
-          "description": "Party identification number"
         },
         "handlingFee": {
           "anyOf": [
@@ -213,6 +232,16 @@
           ],
           "description": "Supplier id of an account"
         },
+        "reverseCharge": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
         "twitter": {
           "anyOf": [
             {
@@ -246,6 +275,16 @@
           ],
           "description": "Blog address of an account"
         },
+        "firstInvoiceNumber": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
         "combineInvoices": {
           "anyOf": [
             {
@@ -276,16 +315,33 @@
             }
           ]
         },
-        "activeContacts": {
-          "type": "integer"
+        "staff": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "turnover": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
         },
         "billingAddress": {
-          "type": "string",
-          "description": "Invoice billing address of an account"
+          "description": "Invoice billing address of an account",
+          "type": "string"
         },
         "billingCity": {
-          "type": "string",
-          "description": "Invoice billing city of an account"
+          "description": "Invoice billing city of an account",
+          "type": "string"
         },
         "billingCountry": {
           "anyOf": [
@@ -299,14 +355,10 @@
           "description": "Invoice billing country of an account"
         },
         "billingPostalCode": {
-          "type": "string",
-          "description": "Invoice billing postal code of an account"
+          "description": "Invoice billing postal code of an account",
+          "type": "string"
         },
-        "created": {
-          "type": "string",
-          "format": "RFC3339"
-        },
-        "createdBy": {
+        "billingReference": {
           "anyOf": [
             {
               "type": "string"
@@ -319,50 +371,41 @@
             }
           ]
         },
-        "modified": {
-          "type": "string",
-          "format": "RFC3339"
-        },
-        "modifiedBy": {
+        "billingState": {
           "anyOf": [
             {
               "type": "string"
             },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "parentAccount": {
+          "anyOf": [
             {
               "type": "integer"
             },
             {
               "type": "null"
             }
-          ]
+          ],
+          "description": "Parent id of an account"
         },
-        "ownerName": {
+        "ceo": {
           "anyOf": [
             {
               "type": "string"
             },
             {
-              "type": "integer"
-            },
-            {
               "type": "null"
             }
           ]
         },
-        "revenueThisYear": {
+        "parentAccountName": {
           "anyOf": [
             {
-              "type": "number"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "revenueLastYear": {
-          "anyOf": [
-            {
-              "type": "number"
+              "type": "string"
             },
             {
               "type": "null"
@@ -370,11 +413,25 @@
           ]
         },
         "shippingAddress": {
-          "type": "string",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Invoice shipping address of an account"
         },
         "shippingCity": {
-          "type": "string",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Invoice shipping city of an account"
         },
         "shippingCountry": {
@@ -389,12 +446,55 @@
           "description": "Invoice shipping country of an account"
         },
         "shippingPostalCode": {
-          "type": "string",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
           "description": "Invoice shipping postal code of an account"
         },
-        "supplierAccountName": {
-          "type": "string",
-          "description": "Account name of supplier"
+        "shippingReference": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "shippingState": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "invoiceAppendix": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "invoiceTemplate": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
         }
       }
     }

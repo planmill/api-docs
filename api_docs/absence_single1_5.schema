@@ -1,18 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "oneOf": [
-    {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/absence"
-      }
-    },
-    {
-      "$ref": "#/definitions/absence"
-    }
-  ],
+  "$ref": "#/definitions/absence_single",
   "definitions": {
-    "absence": {
+    "absence_single": {
       "additionalProperties": false,
       "type": "object",
       "required": [
